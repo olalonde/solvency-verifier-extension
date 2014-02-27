@@ -1,0 +1,25 @@
+* {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+}
+
+body {
+  padding: 10px;
+  background-color: #fff;
+  background-image: url('../images/icon.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  color: #000;
+  width: 400px;
+  height: 160px;
+}
+
+div {
+  padding: 20px;
+  width: 170px;
+}
+
+p {
+  margin-top: 20px;
+}

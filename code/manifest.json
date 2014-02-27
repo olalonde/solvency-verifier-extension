@@ -1,0 +1,34 @@
+{
+  "name": "Blind Liability Proof Verifier",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Blind liability proof verifier. See https://github.com/olalonde/blind-solvency-proof",
+  "icons": {
+    "128": "images/icon.png"
+  },
+  "page_action": {
+    "default_icon": "images/icon.png",
+    "default_title": "Blind Liability Proof",
+    "default_popup": "html/popup.html"
+  },
+  "background": {
+    "page": "html/background.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": [
+        "js/lib/jquery.js",
+        "js/lib/blproof.js",
+        "js/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "*://*/*",
+    "tabs"
+  ],
+  "web_accessible_resources": [
+  ]
+}
