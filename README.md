@@ -1,4 +1,10 @@
-blproof-extension
-=================
+# Blind Liability Proof Verifier extension
 
-Blind liability proof verifier extension. See https://github.com/olalonde/blind-solvency-proof
+Blind liability proof verifier extension. See https://github.com/olalonde/blind-solvency-proof#publishing-format-draft
+
+## Install
+
+Download the packaged extension
+([code.crx](https://raw.github.com/olalonde/blproof-extension/master/code.crx)). 
+
+Drag and drop the file to [chrome://extensions](chrome://extensions).
