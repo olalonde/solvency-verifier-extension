@@ -1,8 +1,8 @@
-# Blind Liability Proof Verifier extension
+# Solvency Verifier Chrome Extension
 
-Blind liability proof verifier extension. See https://github.com/olalonde/blind-solvency-proof#publishing-format-draft
+See [olalonde/blind-solvency-proof](https://github.com/olalonde/blind-solvency-proof)
 
-![blind liability proof extension screenshot](http://i.minus.com/jCWMC93dAOkPh.png)
+![blind liability proof extension screenshot](./docs/screenshot.png)
 
 ## Install
 
