@@ -20,6 +20,8 @@
       "js": [
         "js/lib/jquery.js",
         "js/lib/blproof.js",
+        "js/lib/baproof.js",
+        "js/lib/async.js",
         "js/content.js"
       ],
       "run_at": "document_idle"

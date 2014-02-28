@@ -1,8 +1,8 @@
-* {
-  margin: 0px;
-  border: 0px;
-  padding: 0px;
-}
+/** {*/
+  /*margin: 0px;*/
+  /*border: 0px;*/
+  /*padding: 0px;*/
+/*}*/
 
 body {
   padding: 10px;
@@ -11,15 +11,21 @@ body {
   background-repeat: no-repeat;
   background-position: bottom right;
   color: #000;
-  width: 400px;
-  height: 160px;
+  width: 600px;
 }
 
-div {
-  padding: 20px;
-  width: 170px;
+/*p {*/
+  /*margin-top: 20px;*/
+/*}*/
+
+.hidden {
+  display: none;
 }
 
-p {
-  margin-top: 20px;
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
 }

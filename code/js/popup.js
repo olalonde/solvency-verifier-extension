@@ -3,12 +3,42 @@ $(function () {
 
   var result = bg_page.results[bg_page.selectedTabId];
 
-  if (result) {
-    var data = result.data;
+  console.log(result);
+
+  $('#lproof').hide();
+  $('#aproof').hide();
+
+  if (result.lproof && result.lproof.verify.success) {
+    $('#lproof').show();
+    var lproof = result.lproof;
+    var data = lproof.verify.data;
+
     $('#user').html(data.user);
     $('#value').html(data.value);
-    $('#root_hash').html(data.root.hash);
-    $('#root_value').html(data.root.value);
+    $('#root_hash').html(lproof.root.hash);
+    $('#root_value').html(lproof.root.value);
     //document.getElementById('address').innerText = address;
+  }
+
+  if (result.aproof /*&& result.aproof.balance*/) {
+    $('#aproof').show();
+    var aproof = result.aproof;
+
+    $('#site').html(aproof.raw.id);
+    $('#balance').html(aproof.balance);
+    //document.getElementById('address').innerText = address;
+  }
+
+  if (result.aproof && result.lproof) {
+    $('#solvency').show();
+    var delta = result.aproof.balance - result.lproof.root.value;
+    if (delta >= 0) {
+      $('#solvent').show();
+      $('#solvent .amount').html(delta);
+    }
+    else {
+      $('#insolvent').show();
+      $('#insolvent .amount').html(Math.abs(delta));
+    }
   }
 });

@@ -1,6 +1,8 @@
 console.log('Background script (background.js):');
 
 
+var Tree = blproof.Tree;
+
 var selectedTabId = null;
 var results = {};
 
@@ -8,10 +10,54 @@ var results = {};
 chrome.extension.onRequest.addListener(function (request, sender, cb) {
   // Show the page action for the tab that the sender (content script)
   // was on.
-  chrome.pageAction.show(sender.tab.id);
-  results[sender.tab.id] = request;
 
-  cb();
+  //chrome.pageAction.show(sender.tab.id);
+  //results[sender.tab.id] = request;
+  if (!request.lproof && !request.aproof) return;
+  var result = {};
+
+  // Save results in result
+  async.parallel([
+    //Verify liability proof
+    function (cb) {
+      if (!request.lproof) return cb();
+      var lproof = {};
+      result.lproof = lproof;
+
+      //console.log(request);
+      lproof.raw = request.lproof;
+
+      var ptree = new Tree();
+      ptree.fromObjectGraph(request.lproof.partial_tree);
+      //console.log(ptree);
+
+      lproof.ptree = ptree;
+
+      //console.log(ptree.root());
+      lproof.verify = blproof.verifyTree(ptree, ptree.root().data);
+      lproof.root = ptree.root().data;
+
+      cb();
+    },
+    // Verify assets proof
+    function (cb) {
+      if (!request.aproof) return cb();
+      var aproof = {};
+      result.aproof = aproof;
+
+      aproof.raw = request.aproof;
+      var addresses = baproof.getAddresses(aproof.raw);
+      baproof.getBalance(addresses, function (err, total) {
+        aproof.balance = total;
+        cb(err);
+      });
+    }
+  ], function (err) {
+    console.log(result);
+    results[sender.tab.id] = result;
+    chrome.pageAction.show(sender.tab.id);
+  });
+
 });
 
 chrome.tabs.onSelectionChanged.addListener(function(tabId, info) {
