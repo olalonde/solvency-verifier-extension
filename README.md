@@ -2,7 +2,9 @@
 
 See [olalonde/blind-solvency-proof](https://github.com/olalonde/blind-solvency-proof)
 
-![blind liability proof extension screenshot](docs/screenshot.png)
+![solvency verifier extension screenshot](docs/screenshot.png)
+
+Beer fund: **1ECyyu39RtDNAuk3HRCRWwD4syBF2ZGzdx**
 
 ## Install
 
