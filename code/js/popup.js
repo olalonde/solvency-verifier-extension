@@ -1,6 +1,7 @@
 $(function () {
   var bg_page = chrome.extension.getBackgroundPage();
 
+  console.log(bg_page);
   var result = bg_page.results[bg_page.selectedTabId];
 
   console.log(result);
@@ -29,9 +30,9 @@ $(function () {
     //document.getElementById('address').innerText = address;
   }
 
-  if (result.aproof && result.lproof) {
+  if (result.delta !== null) {
     $('#solvency').show();
-    var delta = result.aproof.balance - result.lproof.root.value;
+    var delta = result.delta;
     if (delta >= 0) {
       $('#solvent').show();
       $('#solvent .amount').html(delta);

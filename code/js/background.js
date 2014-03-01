@@ -53,6 +53,21 @@ chrome.extension.onRequest.addListener(function (request, sender, cb) {
       });
     }
   ], function (err) {
+    if (err) return alert(err);
+    // Check if site is solvent
+    if (result.aproof && result.lproof) {
+      var delta = result.aproof.balance - result.lproof.root.value;
+      result.delta = delta;
+      if (delta >= 0) {
+        //solvent 
+        chrome.pageAction.setIcon({tabId: sender.tab.id, path: '/images/icon-solvent.png'});
+      }
+      else {
+        //insolvent
+        chrome.pageAction.setIcon({tabId: sender.tab.id, path: '/images/icon-insolvent.png'});
+      }
+    }
+
     console.log(result);
     results[sender.tab.id] = result;
     chrome.pageAction.show(sender.tab.id);

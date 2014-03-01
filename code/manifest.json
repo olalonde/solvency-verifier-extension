@@ -1,6 +1,6 @@
 {
   "name": "Solvency Verifier",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 2,
   "description": "Solvency Verifier. See https://github.com/olalonde/blind-solvency-proof",
   "icons": {
