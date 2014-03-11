@@ -15,9 +15,9 @@ $(function () {
     var data = lproof.verify.data;
 
     $('#user').html(data.user);
-    $('#value').html(data.value);
+    $('#value').html(data.value / 1e8);
     $('#root_hash').html(lproof.root.hash);
-    $('#root_value').html(lproof.root.value);
+    $('#root_value').html(lproof.root.value / 1e8);
     //document.getElementById('address').innerText = address;
   }
 
@@ -26,13 +26,14 @@ $(function () {
     var aproof = result.aproof;
 
     $('#site').html(aproof.raw.id);
-    $('#balance').html(aproof.balance);
+    $('#balance').html(aproof.balance / 1e8);
     //document.getElementById('address').innerText = address;
   }
 
   if (result.delta !== null) {
     $('#solvency').show();
     var delta = result.delta;
+    delta = delta / 1e8
     if (delta >= 0) {
       $('#solvent').show();
       $('#solvent .amount').html(delta);

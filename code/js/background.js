@@ -53,9 +53,11 @@ chrome.extension.onRequest.addListener(function (request, sender, cb) {
       });
     }
   ], function (err) {
-    if (err) return alert(err);
-    // Check if site is solvent
-    if (result.aproof && result.lproof) {
+    if (err) {
+        console.log(JSON.stringify(err))
+        return alert("Cannot verified site solvency, error code: " + err.status + ", message : " + err.message);
+    } else if (result.aproof && result.lproof) {
+     // Check if site is solvent
       var delta = result.aproof.balance - result.lproof.root.value;
       result.delta = delta;
       if (delta >= 0) {
