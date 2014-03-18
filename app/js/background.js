@@ -1,6 +1,5 @@
 console.log('Background script (background.js):');
 
-
 var Tree = blproof.Tree;
 
 var selectedTabId = null;
@@ -59,7 +58,7 @@ chrome.extension.onRequest.addListener(function (request, sender, cb) {
       var delta = result.aproof.balance - result.lproof.root.value;
       result.delta = delta;
       if (delta >= 0) {
-        //solvent 
+        //solvent
         chrome.pageAction.setIcon({tabId: sender.tab.id, path: '/images/icon-solvent.png'});
       }
       else {

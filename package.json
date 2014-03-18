@@ -1,0 +1,20 @@
+{
+  "name": "solvency-verifier-extension",
+  "version": "0.0.0",
+  "dependencies": {},
+  "private": true,
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-connect": "~0.7.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.2",
+    "load-grunt-tasks": "~0.1.0",
+    "time-grunt": "~0.2.10",
+    "grunt-reload": "~0.2.0",
+    "grunt-crx": "~0.3.3",
+    "grunt-exec": "~0.4.5"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
