@@ -1,5 +1,6 @@
 {
-  "id": "Horse Battery Staple BTC deposits",
+  "id": "BTC deposits",
+  "domain": "localhost",
   "signatures": [
     {
       "address": "1JwSSubhmg6iPtRjtyqhUYYH7bZg3Lfy1T",
