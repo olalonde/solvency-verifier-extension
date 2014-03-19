@@ -1,7 +1,6 @@
 {
   "name": "solvency-verifier-extension",
   "version": "0.0.0",
-  "dependencies": {},
   "private": true,
   "scripts": {
     "updatedeps": "cp ../blind-solvency-proof/build/bsproof.js app/js/lib/"

@@ -26,7 +26,7 @@ module.exports = function (grunt) {
     },
     crx: {
       production: {
-        src: '.tmp/',
+        src: 'temp/',
         dest: '<%= config.dist %>/solvency-verifier.crx',
         privateKey: '~/.ssh/chrome-apps.pem'
       }
@@ -75,8 +75,8 @@ module.exports = function (grunt) {
       }
     },
     exec: {
-      copyToTmp: {
-        cmd: 'rm -rf .tmp; cp -R <%= config.app %> .tmp'
+      copyToTemp: {
+        cmd: 'rm -rf temp; cp -R <%= config.app %> temp'
       }
     },
     clean: {
@@ -88,10 +88,9 @@ module.exports = function (grunt) {
           ]
         }]
       },
-      tmp: {
+      temp: {
         files: [ {
-          dot: true,
-          src: [ '.tmp/' ]
+          src: [ './temp' ]
         }]
       }
     }
@@ -99,7 +98,7 @@ module.exports = function (grunt) {
 
   // Don't use livereload in distributed Chrome extension
   grunt.registerTask('fixmanifest', function() {
-    var file = grunt.config.get('config.app') + '/manifest.json';
+    var file = 'temp/manifest.json';
     var manifest = grunt.file.readJSON(file);
     var scripts = manifest.background.scripts;
     var s = [];
@@ -108,15 +107,15 @@ module.exports = function (grunt) {
       s.push(scripts[i]);
     }
     manifest.background.scripts = s;
-    grunt.file.write(file, JSON.stringify(manifest, null, 2));
+    grunt.file.write('temp/manifest.json', JSON.stringify(manifest, null, 2));
   });
 
   grunt.registerTask('build', [
     'clean:dist',
-    'exec:copyToTmp',
+    'exec:copyToTemp',
     'fixmanifest',
     'crx:production',
-    'clean:tmp'
+    'clean:temp'
   ]);
 
   grunt.registerTask('default', [
