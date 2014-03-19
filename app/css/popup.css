@@ -29,3 +29,8 @@ body {
 .error {
   color: red;
 }
+
+#log {
+  height: 150px;
+  overflow-y: scroll;
+}

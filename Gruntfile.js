@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = function (grunt) {
   // load all grunt tasks
   require('load-grunt-tasks')(grunt);
@@ -29,6 +31,19 @@ module.exports = function (grunt) {
         privateKey: '~/.ssh/chrome-apps.pem'
       }
     },
+    handlebars: {
+      compile: {
+        options: {
+          namespace: 'templates',
+          processName: function (filePath) {
+            return path.basename(filePath, '.hbs');
+          }
+        },
+        files: {
+          '<%= config.app %>/js/templates.js': '<%= config.app %>/templates/*'
+        }
+      }
+    },
     watch: {
       app: {
         files: [
@@ -37,6 +52,15 @@ module.exports = function (grunt) {
           '<%= config.app %>/**/*.js',
           '<%= config.app %>/**/*.html'
         ],
+        options: {
+          livereload: 35728 //extension
+        }
+      },
+      handlebars: {
+        files: [
+          '<%= config.app %>/templates/*.hbs',
+        ],
+        tasks: [ 'handlebars:compile' ],
         options: {
           livereload: 35728
         }

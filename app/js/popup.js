@@ -1,15 +1,25 @@
 $(function () {
   var bg_page = chrome.extension.getBackgroundPage();
-
-  //console.log(bg_page);
   var results = bg_page.results[bg_page.selectedTabId];
 
-  var res = results.res;
-  var err = results.err;
+  if (!results) {
+    $('#content').html('Loading...');
+    return;
+  }
 
-  console.log(results);
+  function log (msg) {
+    if (typeof msg === 'object') {
+      msg = JSON.stringify(msg, null, 2);
+    }
+    $('#log').append(msg + '\n');
+  }
 
-  $('body').html('<pre>' + JSON.stringify(results, null, 2) + '</pre>');
+  log(results);
+
+  var locals = results;
+  var html = templates['popup'](locals);
+
+  $('#content').html(html);
 
   //$('#lproof').hide();
   //$('#aproof').hide();

@@ -1,0 +1,62 @@
+{{#each res}}
+<div>
+  <h2>{{@key}}</h2>
+
+  <ul>
+    {{#if this.liability}}
+    <li class="{{#if this.liability.success}}success{{else}}error{{/if}}">
+      Liability proof {{#if this.liability.success}}successful{{else}}unsuccessful{{/if}}.
+      {{#if this.liability.success}}
+      <ul>
+        <li>{{this.liability.success.user}} balance: {{this.liability.success.value}}</li>
+        <li>Site liabilities: {{this.root.root.value}}</li>
+      </ul>
+      {{/if}}
+    </li>
+    {{/if}}
+    {{#if this.asset}}
+    <li class="{{#if this.asset.success}}success{{else}}error{{/if}}">
+      Asset proof {{#if this.asset.success}}successful{{else}}unsuccessful{{/if}}.
+      {{#if this.asset.success}}
+      <ul>
+        <li>Site assets: {{this.asset.success.balance}}</li>
+      </ul>
+      {{/if}}
+    </li>
+    {{/if}}
+    {{#if this.liability}}
+    <li class="solvency {{#if this.success}}success{{else}}error{{/if}}">
+      Solvency proof {{#if this.success}}successful{{else}}unsuccessful{{/if}}.
+    </li>
+    {{/if}}
+  </ul>
+
+</div>
+{{/each}}
+
+<!--
+  <div id="solvency">
+    <h1 class="hidden error" id="insolvent">
+      Site insolvent! <span class="amount"></span> missing.
+    </h1>
+    <h1 class="hidden success" id="solvent">
+      Site solvent! <span class="amount"></span> surplus.
+    </h1>
+  </div>
+  <div id="lproof">
+    <h4>Liability proof successful!</h4>
+    <p>
+      <strong>Root hash:</strong> <span id="root_hash"></span><br>
+      <strong>Root value:</strong> <span id="root_value"></span><br>
+      <strong>User:</strong> <span id="user"></span><br>
+      <strong>Balance:</strong> <span id="value"></span><br>
+    </p>
+  </div>
+  <div id="aproof">
+    <h4>Solvency proof successful!</h4>
+    <p>
+      <strong>Site:</strong> <span id="site"></span><br>
+      <strong>Balance:</strong> <span id="balance"></span><br>
+    </p>
+  </div>
+-->

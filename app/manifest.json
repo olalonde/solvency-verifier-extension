@@ -29,6 +29,7 @@
         "js/lib/blproof.js",
         "js/lib/baproof.js",
         "js/lib/async.js",
+        "bower_components/handlebars/handlebars.js",
         "js/content.js"
       ],
       "run_at": "document_idle"

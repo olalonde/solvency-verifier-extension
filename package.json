@@ -15,7 +15,8 @@
     "time-grunt": "~0.2.10",
     "grunt-reload": "~0.2.0",
     "grunt-crx": "~0.3.3",
-    "grunt-exec": "~0.4.5"
+    "grunt-exec": "~0.4.5",
+    "grunt-contrib-handlebars": "~0.7.0"
   },
   "engines": {
     "node": ">=0.8.0"

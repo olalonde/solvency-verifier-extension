@@ -4,33 +4,14 @@
     <title>Popup!</title>
     <script src="../js/lib/jquery.js"></script>
     <script src="../js/lib/underscore.js"></script>
-    <script src="../js/popup.js"></script>
+    <script src="../bower_components/handlebars/handlebars.js"></script>
+    <script src="../js/helpers.js"></script>
+    <script src="../js/templates.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/popup.css">
   </head>
   <body>
-    <div id="solvency">
-      <h1 class="hidden error" id="insolvent">
-        Site insolvent! <span class="amount"></span> missing.
-      </h1>
-      <h1 class="hidden success" id="solvent">
-        Site solvent! <span class="amount"></span> surplus.
-      </h1>
-    </div>
-    <div id="lproof">
-      <h4>Liability proof successful!</h4>
-      <p>
-        <strong>Root hash:</strong> <span id="root_hash"></span><br>
-        <strong>Root value:</strong> <span id="root_value"></span><br>
-        <strong>User:</strong> <span id="user"></span><br>
-        <strong>Balance:</strong> <span id="value"></span><br>
-      </p>
-    </div>
-    <div id="aproof">
-      <h4>Solvency proof successful!</h4>
-      <p>
-        <strong>Site:</strong> <span id="site"></span><br>
-        <strong>Balance:</strong> <span id="balance"></span><br>
-      </p>
-    </div>
+    <div id="content">Loading...</div>
+    <script src="../js/popup.js"></script>
+    <pre id="log"></pre>
   </body>
 </html>
