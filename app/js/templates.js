@@ -104,11 +104,24 @@ function program16(depth0,data) {
   buffer += "\n    <li class=\"solvency ";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.success), {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\">\n      Solvency proof ";
-  stack1 = helpers['if'].call(depth0, (depth0 && depth0.success), {hash:{},inverse:self.program(9, program9, data),fn:self.program(7, program7, data),data:data});
+  buffer += "\">\n      ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.success), {hash:{},inverse:self.program(19, program19, data),fn:self.program(17, program17, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += ".\n    </li>\n    ";
+  buffer += " ("
+    + escapeExpression(((stack1 = (depth0 && depth0.delta)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + ")\n    </li>\n    ";
   return buffer;
+  }
+function program17(depth0,data) {
+  
+  
+  return "Site solvent!";
+  }
+
+function program19(depth0,data) {
+  
+  
+  return "Site insolvent!";
   }
 
   stack1 = helpers.each.call(depth0, (depth0 && depth0.res), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
