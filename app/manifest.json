@@ -13,20 +13,17 @@
   },
   "background": {
     "scripts": [
+      "js/livereload.js",
       "js/lib/jquery.js",
       "js/lib/underscore.js",
-      "js/lib/blproof.js",
-      "js/lib/baproof.js",
+      "js/lib/bsproof.js",
       "js/lib/async.js",
       "js/background.js"
     ]
   },
   "content_scripts": [
     {
-      "matches": [
-        "http://*/*",
-        "https://*/*"
-      ],
+      "matches": ["http://*/*", "https://*/*"],
       "js": [
         "js/lib/jquery.js",
         "js/lib/blproof.js",
@@ -41,5 +38,6 @@
     "*://*/*",
     "tabs"
   ],
-  "web_accessible_resources": []
+  "web_accessible_resources": [
+  ]
 }

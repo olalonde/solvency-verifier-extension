@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "dependencies": {},
   "private": true,
+  "scripts": {
+    "updatedeps": "cp ../blind-solvency-proof/build/bsproof.js app/js/lib/"
+  },
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-contrib-connect": "~0.7.1",
