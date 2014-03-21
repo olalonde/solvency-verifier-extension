@@ -1,4 +1,4 @@
-# Solvency Verifier Chrome Extension
+# Proof of Solvency Chrome Extension
 
 See [olalonde/blind-solvency-proof](https://github.com/olalonde/blind-solvency-proof)
 
